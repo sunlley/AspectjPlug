@@ -1,0 +1,26 @@
+
+buildscript {
+    
+    repositories {
+        google()
+        jcenter()
+        maven { url uri('/Users/kayo/maven') }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.2.0-alpha01'
+        classpath 'com.kayo.android.aspectj:aspectj-plug:3.0.0-alpha'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url uri('/Users/kayo/maven') }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+

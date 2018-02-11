@@ -1,0 +1,64 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+dependencies {
+    //gradle sdk
+    compile gradleApi()
+    //groovy sdk
+    compile localGroovy()
+
+    compile 'com.android.tools.build:gradle:3.2.0-alpha01'
+
+    compile "org.aspectj:aspectjtools:1.8.13"
+    compile "org.aspectj:aspectjrt:1.8.13"
+    compile 'com.android.tools.build:transform-api:2.0.0-deprecated-use-gradle-api'
+
+}
+repositories {
+    maven { url uri('/Users/kayo/maven') }
+    mavenCentral()
+}
+
+group='com.kayo.android.aspectj'
+version='3.0.0-alpha'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            //提交到远程服务器：
+            // repository(url: "http://www.xxx.com/repos") {
+            //    authentication(userName: "admin", password: "admin")
+            // }
+            //本地的Maven地址设置为
+            repository(url: uri('/Users/kayo/maven'))
+
+            pom.project {
+                name 'aspectj-plug'
+                groupId "com.kayo.android.aspectj"
+                artifactId 'aspectj-plug'
+                version version
+                packaging 'jar'
+                description 'a plug'
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        distribution 'repo'
+                    }
+                }
+//                developers {
+//                    developer {
+//                        id DEVELOPER_ID
+//                        name DEVELOPER_NAME
+//                        email DEVELOPER_EMAIL
+//                    }
+//                }
+//
+//                organization {
+//                    name ORGANIZATION_NAME
+//                    url ORGANIZATION_URL
+//                }
+            }
+        }
+    }
+}
