@@ -1,8 +1,11 @@
 
 buildscript {
-    
+    Properties properties = new Properties()
+    DataInputStream inputStream = project.rootProject.file('local.properties').newDataInputStream()
+    properties.load(inputStream)
+    def mavenRepo=properties.getProperty('mavenRepo')
     repositories {
-        maven { url uri('/Users/kayo/maven') }
+        maven { url uri(mavenRepo) }
         mavenCentral()
         google()
         jcenter()
@@ -15,8 +18,12 @@ buildscript {
 }
 
 allprojects {
+    Properties properties = new Properties()
+    DataInputStream inputStream = project.rootProject.file('local.properties').newDataInputStream()
+    properties.load(inputStream)
+    def mavenRepo=properties.getProperty('mavenRepo')
     repositories {
-        maven { url uri('/Users/kayo/maven') }
+        maven { url uri(mavenRepo) }
         mavenCentral()
         google()
         jcenter()
