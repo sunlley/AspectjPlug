@@ -10,18 +10,6 @@ class AndroidAspectjPlugin implements Plugin<Project> {
     @Override
     void apply(Project project) {
 
-        def moduleName = 'Module:'+project.name
-        def line = "============================================"
-        println(line)
-        println("         Hello AndroidAspectjPlugin !")
-        if (moduleName.length() >= line.length()){
-            println(" "+moduleName)
-        }else {
-            def dy = (line.length() -moduleName.length())/2
-            println( " "*dy+moduleName)
-        }
-        println(line)
-
         //添加仓库
         project.repositories {
             mavenLocal()
@@ -38,6 +26,7 @@ class AndroidAspectjPlugin implements Plugin<Project> {
         if (project.plugins.hasPlugin(AppPlugin)) {
             //build time trace
             if (project.aspectj.trackLog){
+                showSignLog()
                 project.gradle.addListener(new AspectjTaskTrace())
             }
 
@@ -45,5 +34,20 @@ class AndroidAspectjPlugin implements Plugin<Project> {
             AppExtension android = project.extensions.getByType(AppExtension)
             android.registerTransform(new AspectjTransform(project))
         }
+    }
+
+
+    void showSignLog(){
+        def moduleName = 'Module:'+project.name
+        def line = "============================================"
+        println(line)
+        println("         Hello AndroidAspectjPlugin !")
+        if (moduleName.length() >= line.length()){
+            println(" "+moduleName)
+        }else {
+            def dy = (line.length() -moduleName.length())/2
+            println( " "*dy+moduleName)
+        }
+        println(line)
     }
 }

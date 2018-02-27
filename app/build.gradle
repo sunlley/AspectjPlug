@@ -2,9 +2,9 @@ apply plugin: 'com.android.application'
 apply plugin: 'aspectj-plug'
 
 android {
-    aspectj {
-        trackLog true
-    }
+//    aspectj {
+//        trackLog true
+//    }
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.kayo.aspectjplug"

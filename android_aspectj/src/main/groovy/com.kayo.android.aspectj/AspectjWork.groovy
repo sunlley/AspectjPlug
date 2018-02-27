@@ -27,7 +27,9 @@ class AspectjWork {
     }
 
     void doWork() {
-        println "Aspectj Do Work.........."
+        if (project.aspectj.trackLog){
+            println "Aspectj Do Work.........."
+        }
         final def log = project.logger
 
         //http://www.eclipse.org/aspectj/doc/released/devguide/ajc-ref.html

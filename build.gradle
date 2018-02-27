@@ -2,21 +2,25 @@
 buildscript {
     
     repositories {
+        maven { url uri('/Users/kayo/maven') }
+        mavenCentral()
         google()
         jcenter()
-        maven { url uri('/Users/kayo/maven') }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.0-alpha01'
-        classpath 'com.kayo.android.aspectj:aspectj-plug:3.0.0-alpha'
+        classpath 'com.kayo.android.aspectj:aspectj-plug:3.0.2-alpha'
+        classpath 'com.kayo.jcenter:jcenter-plug:3.0.0-alpha'
     }
 }
 
 allprojects {
     repositories {
+        maven { url uri('/Users/kayo/maven') }
+        mavenCentral()
         google()
         jcenter()
-        maven { url uri('/Users/kayo/maven') }
+
     }
 }
 

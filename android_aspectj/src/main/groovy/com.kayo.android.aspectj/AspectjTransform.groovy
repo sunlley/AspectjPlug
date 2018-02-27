@@ -136,14 +136,18 @@ class AspectjTransform extends Transform {
         }
 
         if (transformTask.variantName.contains("AndroidTest")) {
-            println "there is no aspectjrt dependencies in classpath, do nothing "
+            if (showLog()){
+                println "there is no aspectjrt dependencies in classpath, do nothing "
+            }
             inputs.each { TransformInput input ->
                 input.directoryInputs.each { DirectoryInput directoryInput ->
                     def dest = outputProvider.getContentLocation(directoryInput.name,
                             directoryInput.contentTypes, directoryInput.scopes,
                             Format.DIRECTORY)
                     FileUtil.copyDir(directoryInput.file, dest)
-                    println "directoryInput = ${directoryInput.name}"
+                    if (showLog()){
+                        println "directoryInput = ${directoryInput.name}"
+                    }
                 }
 
                 input.jarInputs.each { JarInput jarInput ->
@@ -152,7 +156,9 @@ class AspectjTransform extends Transform {
                             jarInput.contentTypes, jarInput.scopes, Format.JAR)
 
                     FileUtil.copyFile(jarInput.file, dest)
-                    println "jarInput = ${jarInput.name}"
+                    if (showLog()){
+                        println "jarInput = ${jarInput.name}"
+                    }
                 }
             }
         } else {
@@ -161,7 +167,9 @@ class AspectjTransform extends Transform {
     }
 
     private void doAspectjTransform(TransformOutputProvider outputProvider, Collection<TransformInput> inputs) {
-        println "Aspectj Start............"
+        if (showLog()){
+            println "Aspectj Start............"
+        }
         AspectjWork aspectWork = new AspectjWork(project)
         aspectWork.encoding = encoding
         aspectWork.bootClassPath = bootClassPath
@@ -171,7 +179,9 @@ class AspectjTransform extends Transform {
         //create aspect destination dir
         File resultDir = outputProvider.getContentLocation("aspect", getOutputTypes(), getScopes(), Format.DIRECTORY)
         if (resultDir.exists()) {
-            println "delete resultDir ${resultDir.absolutePath}"
+            if (showLog()){
+                println "delete resultDir ${resultDir.absolutePath}"
+            }
             AspectjFileUtil.deleteFolder(resultDir)
         }
         AspectjFileUtil.mkdirs(resultDir)
@@ -210,7 +220,9 @@ class AspectjTransform extends Transform {
         aspectWork.doWork()
 
         //add class file to aspect result jar
-        println "Aspectj *.Jar Merging...."
+        if (showLog()){
+            println "Aspectj *.Jar Merging...."
+        }
         if (resultDir.listFiles().length > 0) {
             File jarFile = outputProvider.getContentLocation("aspected", getOutputTypes(), getScopes(), Format.JAR)
             AspectjFileUtil.mkdirs(jarFile.getParentFile())
@@ -236,7 +248,9 @@ class AspectjTransform extends Transform {
 
         AspectjFileUtil.deleteFolder(resultDir)
 
-        println "Aspectj Done............."
+        if (showLog()){
+            println "Aspectj Done............."
+        }
     }
 
     boolean isExcludeFilterMatched(String str, List<String> filters) {
