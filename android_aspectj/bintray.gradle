@@ -9,7 +9,7 @@ def fileType='jar'
 def siteUrl='https://github.com/kayoSun/AspectjPlug' // 项目的主页 这个是说明，可随便填
 def gitUrl='https://github.com/kayoSun/AspectjPlug' // Git仓库的url 这个是说明，可随便填
 def plugDesc='a plug for aspectj'
-def plugId='com.kayo.android.aspectj'// 这里是groupId ,必须填写 一般填你唯一的包名，对应com.squareup.okhttp3:okhttp:3.4.1中的com.squareup.okhttp3部分
+def plugId='com.kayo.android.aspectj'// 这里是groupId
 def plugName='aspectj-plug'
 def plugVersion='3.0.2-alpha'
 
