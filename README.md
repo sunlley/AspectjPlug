@@ -12,7 +12,7 @@
         jcenter()
     }
     dependencies {
-         classpath 'com.kayo.android.aspectj:aspectj-plug:3.0.2-alpha'
+         classpath 'com.kayo.android.aspectj:aspectj-plug:3.0.2'
     }
   }
 ```
@@ -31,6 +31,7 @@ apply plugin: 'aspectj-plug'
 | jcener-plug version | Java Projects | Android Projects |
 |---------------------|---------------|------------------|
 | 3.0.2-alpha         | Gradle 4.0+   | Gradle 4.1+      |
+| 3.0.2               | Gradle 4.0+   | Gradle 4.1+      |
 
 
 ##  感谢

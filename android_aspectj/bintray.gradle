@@ -1,6 +1,6 @@
 apply plugin: 'maven'
 apply plugin: 'jcenter-plug'
-Properties properties = new Properties();
+Properties properties = new Properties()
 DataInputStream inputStream = project.rootProject.file('local.properties').newDataInputStream()
 properties.load(inputStream)
 
@@ -11,7 +11,7 @@ def gitUrl='https://github.com/kayoSun/AspectjPlug' // Git仓库的url 这个是
 def plugDesc='a plug for aspectj'
 def plugId='com.kayo.android.aspectj'// 这里是groupId
 def plugName='aspectj-plug'
-def plugVersion='3.0.2-alpha'
+def plugVersion='3.0.2'
 
 def userName=properties.getProperty('userName')
 def userKey=properties.getProperty('userKey')

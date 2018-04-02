@@ -10,7 +10,7 @@ dependencies {
     //groovy sdk
     compile localGroovy()
 
-    compile 'com.android.tools.build:gradle:3.2.0-alpha01'
+    compile 'com.android.tools.build:gradle:3.2.0-alpha08'
 
     compile "org.aspectj:aspectjtools:1.8.13"
     compile "org.aspectj:aspectjrt:1.8.13"

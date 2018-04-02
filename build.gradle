@@ -11,9 +11,9 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.0-alpha01'
+        classpath 'com.android.tools.build:gradle:3.2.0-alpha08'
         classpath 'com.kayo.android.aspectj:aspectj-plug:3.0.2-alpha'
-        classpath 'com.kayo.jcenter:jcenter-plug:3.0.0-alpha'
+        classpath 'com.kayo.jcenter:jcenter-plug:3.0.1'
     }
 }
 
